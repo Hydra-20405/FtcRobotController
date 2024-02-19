@@ -32,8 +32,8 @@ public class TeleOp_Test extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-            frontleft.setPower(tgtPower);
-            backleft.setPower(tgtPower);
+            frontleft.setPower(-tgtPower);
+            backleft.setPower(-tgtPower);
             frontright.setPower(tgtPower);
             backright.setPower(tgtPower);
 
