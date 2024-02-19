@@ -32,9 +32,9 @@ public class TeleOp_Test extends LinearOpMode {
 
         while (opModeIsActive()) {
 
-            frontleft.setPower(-tgtPower);
+            frontleft.setPower(tgtPower);
             backleft.setPower(-tgtPower);
-            frontright.setPower(tgtPower);
+            frontright.setPower(-tgtPower);
             backright.setPower(tgtPower);
 
             telemetry.addData("Status", "walking");
