@@ -27,19 +27,35 @@ public class TeleOp_Test extends LinearOpMode {
 
         // run until the end of the match (driver presses STOP)
         double tgtPower;
+        double tgtPowerTurn;
+        double tgtPowerStrafe;
 
-        tgtPower = -this.gamepad1.left_stick_y;
+        if (opModeIsActive()) {
 
-        while (opModeIsActive()) {
+            while (opModeIsActive()) {
+                tgtPowerTurn = -this.gamepad1.left_stick_x;
+                tgtPower = -this.gamepad1.left_stick_y;
+                tgtPowerStrafe = -this.gamepad1.right_stick_x;
 
-            frontleft.setPower(tgtPower);
-            backleft.setPower(-tgtPower);
-            frontright.setPower(tgtPower);
-            backright.setPower(-tgtPower);
+                frontleft.setPower(tgtPower);
+                backleft.setPower(-tgtPower);
+                frontright.setPower(tgtPower);
+                backright.setPower(-tgtPower);
 
-            telemetry.addData("Status", "walking");
-            telemetry.addData("speed", frontleft.getPower());
-            telemetry.update();
+                frontleft.setPower(-tgtPowerTurn);
+                backleft.setPower(tgtPowerTurn);
+                frontright.setPower(tgtPowerTurn);
+                backright.setPower(-tgtPowerTurn);
+
+                frontleft.setPower(-tgtPowerStrafe);
+                backleft.setPower(-tgtPowerStrafe);
+                frontright.setPower(tgtPowerStrafe);
+                backright.setPower(tgtPowerStrafe);
+
+                telemetry.addData("Status", "walking");
+                telemetry.addData("speed", frontleft.getPower());
+                telemetry.update();
+            }
         }
     }
 }
